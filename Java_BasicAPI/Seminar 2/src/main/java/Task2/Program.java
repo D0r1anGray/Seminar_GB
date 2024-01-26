@@ -1,5 +1,11 @@
 package Task2;
 
+
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 /**
@@ -22,7 +28,11 @@ import java.util.Scanner;
  */
 
 public class Program {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException { // Пусть исключения обрабатвает тот, кто вызывает
+        File file = new File("log.txt"); // метод main
+        file.createNewFile();
+        FileWriter fileWriter = new FileWriter(file, true);
+
         System.out.println("Введите строку: ");
         char c = 'a';
         int codeA = c;
@@ -43,6 +53,9 @@ public class Program {
                                 .append('\n');
             }
         }
-        System.out.println(stringBuilder.toString());
+        String str = stringBuilder.toString();
+        System.out.println(str);
+        fileWriter.write(new Timestamp(System.currentTimeMillis()) + " " + s +  "\n" + str);
+        fileWriter.close();
     }
 }
