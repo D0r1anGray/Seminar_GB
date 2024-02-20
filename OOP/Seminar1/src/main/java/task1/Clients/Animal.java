@@ -2,7 +2,7 @@ package task1.Clients;
 
 import java.time.LocalDate;
 
-public class Animal {
+public abstract class Animal {
     protected String nickname;
     protected Owner owner;
     protected LocalDate birthday;
@@ -11,6 +11,8 @@ public class Animal {
     protected Boolean fly;
     protected Boolean swim;
     protected Boolean toGo;
+
+
 
     public Animal(String nickname, Owner owner, LocalDate birthday, Illness illness,Boolean fly,
                   Boolean swim, Boolean toGo) { //Конструктор по умолчанию (пустой)
@@ -52,12 +54,13 @@ public class Animal {
         this.illness = illness;
     }
 
-    public void lifeCicle(){
-        wakeUp("12:00");
-        hunt();
-        eat();
-        sleep();
-    }
+//    public void lifeCicle(){
+//        wakeUp("12:00");
+//        hunt();
+//        eat();
+//        sleep();
+//    }
+
     private void wakeUp(){
         System.out.println("Животное проснулось!");
     }
@@ -68,22 +71,12 @@ public class Animal {
     private void hunt(){
         System.out.println("Животное охотится");
     }
-    private void eat(){
-        System.out.println("Животное ест");
-    }
+    public abstract void eat();
     private void sleep(){
         System.out.println("Животное уснуло!");
     }
 
-    public void toGo(){
-        if(this.toGo){
-            System.out.println("Животное " + getType() + " умеет бегать!");
-        }
-        else{
-            System.out.println("Животное " + getType() + " не умеет бегать!");
-        }
 
-    }
 
     public void fly(){
         if(this.fly){

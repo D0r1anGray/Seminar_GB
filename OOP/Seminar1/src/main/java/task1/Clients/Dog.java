@@ -2,7 +2,7 @@ package task1.Clients;
 
 import java.time.LocalDate;
 
-public class Dog extends Animal{
+public class Dog extends Animal implements Goable,Huntable{
     public Dog(String nickname, Owner owner, LocalDate birthday, Illness illness, Boolean fly,
                Boolean swim, Boolean toGo) {
         super(nickname, owner, birthday, illness, fly, swim, toGo);
@@ -13,4 +13,14 @@ public class Dog extends Animal{
         super.swim = true;
         super.toGo = true;
     }
+    @Override
+    public void toGo(){
+        System.out.println("Животное может бегать!");
+    }
+
+    @Override
+    public void eat() {
+
+    }
+
 }

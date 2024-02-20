@@ -14,4 +14,9 @@ public class Сheetah extends Animal{
         super.swim = false;
         super.toGo = true;
     }
+
+    @Override
+    public void eat() {
+
+    }
 }

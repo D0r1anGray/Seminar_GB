@@ -14,4 +14,9 @@ public class Duck extends Animal{
         super.swim = true;
         super.toGo = true;
     }
+
+    @Override
+    public void eat() {
+
+    }
 }
