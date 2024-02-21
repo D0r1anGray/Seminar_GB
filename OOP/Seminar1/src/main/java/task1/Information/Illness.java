@@ -1,4 +1,4 @@
-package task1.Clients;
+package task1.Information;
 
 public class Illness {
     String illness;

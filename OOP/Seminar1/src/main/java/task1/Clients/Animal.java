@@ -1,28 +1,22 @@
 package task1.Clients;
 
+import task1.Information.Illness;
+import task1.Information.Owner;
+
 import java.time.LocalDate;
 
-public abstract class Animal {
+public class Animal {
     protected String nickname;
     protected Owner owner;
     protected LocalDate birthday;
-    protected Illness illness;
+    //protected Illness illness;
+    protected boolean illness;
 
-    protected Boolean fly;
-    protected Boolean swim;
-    protected Boolean toGo;
-
-
-
-    public Animal(String nickname, Owner owner, LocalDate birthday, Illness illness,Boolean fly,
-                  Boolean swim, Boolean toGo) { //Конструктор по умолчанию (пустой)
+    public Animal(String nickname, Owner owner, LocalDate birthday, boolean illness){ //Конструктор по умолчанию (пустой)
         this.nickname = nickname;
         this.owner = owner;
         this.birthday = birthday;
         this.illness = illness;
-        this.toGo = toGo;
-        this.swim = swim;
-        this.fly = fly;
     }
 
     public Animal() {
@@ -30,8 +24,8 @@ public abstract class Animal {
 //        this.owner = new Owner("Хозяин");
 //        this.birthday = LocalDate.now();
 //        this.illness = new Illness("Болезнь");
-        this("Кличка" , new Owner("Хозяин"),
-                LocalDate.now(), new Illness("Болеет"), false, false, false);
+        this("БезКлички" , new Owner("БезХозяина"),
+                LocalDate.now(), false);
     }
 
     public String getNickname() {
@@ -46,11 +40,11 @@ public abstract class Animal {
         return birthday;
     }
 
-    public Illness getIllness() {
+    public boolean getIllness() {
         return illness;
     }
 
-    public void setIllness(Illness illness) {
+    public void setIllness(boolean illness) {
         this.illness = illness;
     }
 
@@ -71,31 +65,9 @@ public abstract class Animal {
     private void hunt(){
         System.out.println("Животное охотится");
     }
-    public abstract void eat();
+    //public abstract void eat();
     private void sleep(){
         System.out.println("Животное уснуло!");
-    }
-
-
-
-    public void fly(){
-        if(this.fly){
-            System.out.println("Животное " + getType() + " умеет летать!");
-        }
-        else{
-            System.out.println("Животное " + getType() + " не умеет летать!");
-        }
-
-    }
-
-    public void swim(){
-        if(this.swim){
-            System.out.println("Животное " + getType() + " умеет плавать!");
-        }
-        else{
-            System.out.println("Животное " + getType() + " не умеет плавать!");
-        }
-
     }
 
 
